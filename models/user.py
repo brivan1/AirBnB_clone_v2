@@ -6,6 +6,7 @@ from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
 from models.review import Review
 from sqlalchemy.ext.declarative import declarative_base
+
 class User(BaseModel, Base):
     """Represents the MySQL database user class
     Attributes:

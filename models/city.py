@@ -6,6 +6,7 @@ from models.place import Place
 from sqlalchemy import ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
+
 class City(BaseModel, Base):
     """Defines the MySQL city class
     Attributes:

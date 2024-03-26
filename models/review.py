@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """This script defines review class."""
+import models
+import sqlalchemy
 from models.base_model import BaseModel, Base
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, ForeignKey, Float

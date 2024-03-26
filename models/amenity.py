@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """This script defines the amenity class."""
+import models
+import sqlalchemy
 from models.place import place_amenity
 from models.base_model import BaseModel, Base
 from models.city import City

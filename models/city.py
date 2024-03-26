@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """This script defines the city class of the database."""
+import models
+import sqlalchemy
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, Integer, String
 from models.place import Place

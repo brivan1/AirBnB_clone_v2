@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """This sript defines the user class of the database."""
+import models
+import sqlalchemy 
 from models.place import Place
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, Integer, String

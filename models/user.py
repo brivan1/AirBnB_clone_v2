@@ -2,12 +2,9 @@
 """This sript defines the user class of the database."""
 import models
 import sqlalchemy 
-from models.place import Place
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
-from models.review import Review
-from sqlalchemy.ext.declarative import declarative_base
 
 class User(BaseModel, Base):
     """Represents the MySQL database user class
@@ -17,6 +14,7 @@ class User(BaseModel, Base):
         first_name: User first name
         last_name: User last name
     """
+    if models.storage_t == "db":
     __tablename__ = "users"
     email = Column(String(128), nullable=False)
     password = Column(String(128), nullable=False)
@@ -26,3 +24,12 @@ class User(BaseModel, Base):
                           backref="user")
     reviews = relationship("Review", cascade='all, delete, delete-orphan',
                            backref="user")
+else:
+    email = ""
+    password = ""
+    first_name = ""
+    last_name = ""
+
+    def __init__(self, *args, **kwargs):
+        """initializes user"""
+        super().__init__(*args, **kwargs)

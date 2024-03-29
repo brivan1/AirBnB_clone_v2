@@ -2,27 +2,22 @@
 """This script defines the amenity class."""
 import models
 import sqlalchemy
-from models.place import place_amenity
 from models.base_model import BaseModel, Base
-from models.city import City
-from models.user import User
-from os import environ
+from os import getenv
 from sqlalchemy.orm import relationship
-from sqlalchemy import Column, String, Integer, Float, ForeignKey
+from sqlalchemy import Column, String, Integer
 
 storage_engine = environ.get("HBNB_TYPE_STORAGE")
 
 class Amenity(BaseModel, Base):
-    """Defines the MySQL database amenity class.
-
-    Attributes:
-        __tablename__ (str): The tablename for amenity class.
-    """
-    if (storage_engine == "db"):
+    """representstion of amenity"""
+    if models.storage_t == "db":
         __tablename__ = "amenities"
         name = Column(String(128), nullable=False)
-        place_amenities = relationship(
-            "Place",
-            secondary=place_amenity, back_populates="amenities")
+
     else:
         name = ""
+
+    def __init__(self, *args, **kwargs):
+        """ initializes Amenity"""
+        super().__init__(*args, **kwargs)

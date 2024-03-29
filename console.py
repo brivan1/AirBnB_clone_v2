@@ -2,8 +2,11 @@
 """ console """
 
 import cmd
+import sys
+sys.path.append('/AirBnB_clone_v2/models/')
+import os
 from datetime import datetime
-import models
+import uuid
 from models.amenity import Amenity
 from models.base_model import BaseModel
 from models.city import City
